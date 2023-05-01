@@ -1,0 +1,32 @@
+<launch>
+
+    <node pkg="control_manage" type="waypoint_los_pid_node" name="waypoint_los_pid_node" output="screen">
+        <!-- pid params -->
+        <param name="pid/heading_kp" value="20.0" type="double"/>
+        <param name="pid/heading_ki" value="0.0" type="double"/>
+        <param name="pid/heading_kd" value="2.0" type="double"/> 
+        
+        <param name="pid/course_kp" value="0.9" type="double"/>
+        <param name="pid/course_ki" value="0.0" type="double"/>
+        <param name="pid/course_kd" value="3.0" type="double"/>
+
+        <param name="pid/speed_kp" value="4.0" type="double"/>
+        <!-- <param name="pid/speed_ki" value="0.0" type="double"/> -->
+        <!-- <param name="pid/speed_kp" value="500.0" type="double"/> -->
+        <param name="pid/speed_ki" value="5.0" type="double"/>
+        <param name="pid/speed_kd" value="0.0" type="double"/>
+
+        
+        <param name="desired_heading" value="0.0"/>
+        <!-- los params -->
+        <param name="los/desired_speed" value="2"/>
+        <param name="los/switch_distance" value="10"/>
+        <param name="los/use_const_delta" value="false" type="bool"/>
+        <param name="los/const_delta" value="4.0" type="double"/>
+        <param name="los/delta_max" value="10.0" type="double"/>
+        <param name="los/delta_min" value="1.0" type="double"/>
+        <param name="los/gamma" value="1.0" type="double"/>
+    </node>
+    <node pkg="publish_waypoints" type="publish_waypoints_node" name="publish_waypoints_node" /> 
+
+</launch>

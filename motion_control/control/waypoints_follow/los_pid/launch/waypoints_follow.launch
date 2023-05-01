@@ -1,0 +1,31 @@
+<launch>
+
+  <arg name="kp_psi" default="5" />
+  <arg name="ki_psi" default="0" />
+  <arg name="kd_psi" default="1" />
+  <arg name="kp_u" default="2" />
+  <!-- <arg name="kp_u" default="0" /> -->
+
+  <arg name="ki_u" default="20" />
+  <!-- <arg name="ki_u" default="0" /> -->
+  <arg name="kd_u" default="0" />
+  <arg name="desired_speed" default="1" />
+  <arg name="desired_heading" default="0" />
+
+
+  <node pkg="los_pid" type="los_pid_node2" name="los_pid_node" output="screen">
+    <param name="kp_psi" value="$(arg kp_psi)" />
+    <param name="ki_psi" value="$(arg ki_psi)" />
+    <param name="kd_psi" value="$(arg kd_psi)" />
+    <param name="kp_u" value="$(arg kp_u)" />
+    <param name="ki_u" value="$(arg ki_u)" />
+    <param name="kd_u" value="$(arg kd_u)" />
+    <param name="desired_speed" value="$(arg desired_speed)" />
+    <param name="desired_heading" value="$(arg desired_heading)" />
+
+  </node>
+
+  <node pkg="publish_waypoints" type="publish_waypoints_node" name="publish_waypoints_node" /> 
+
+
+</launch>
