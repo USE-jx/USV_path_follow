@@ -1,5 +1,6 @@
 # USV_motion_control
 usv path follow, trajectory tracking,and so on 
+编译报错自己解决不了就别看了，就一个LOS没啥有用的
 
 整个算法的文件夹叫motion_control，其中包括control，guidance，control_manage三个包。
 
